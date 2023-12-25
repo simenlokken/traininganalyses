@@ -19,7 +19,7 @@
 prepare_garmin_data <- function(dataframe, max_hr = 200, body_weight = 80) {
   dataframe <- dataframe |>
     janitor::clean_names() |>
-    rename(
+    dplyr::rename(
       timestamp = record_timestamp_s,
       heart_rate = record_heart_rate_bpm,
       power = record_power_watts,
@@ -29,16 +29,16 @@ prepare_garmin_data <- function(dataframe, max_hr = 200, body_weight = 80) {
       longitude = record_position_long_semicircles,
       latitude = record_position_lat_semicircles
     ) |>
-    mutate(
+    dplyr::mutate(
       elapsed_time_sec = timestamp - min(timestamp),
       elapsed_time_min = elapsed_time_sec / 60,
       heart_rate_normalized = heart_rate / max_hr * 100,
       pwr_normalized = power / body_weight
     ) |>
-    select(
+    dplyr::select(
       timestamp, elapsed_time_sec, elapsed_time_min, heart_rate,
       heart_rate_normalized, power, pwr_normalized, cadence, distance,
       altitude, longitude, latitude
     ) |>
-    as_tibble()
+    dplyr::as_tibble()
 }

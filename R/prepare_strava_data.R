@@ -17,7 +17,7 @@
 
 prepare_strava_data <- function(dataframe, max_hr = 200, bw = 80) {
   dataframe <- dataframe |>
-    rename(
+    dplyr::rename(
       heart_rate = heartrate,
       power = watts,
       elapsed_time_sec = time,
@@ -26,15 +26,15 @@ prepare_strava_data <- function(dataframe, max_hr = 200, bw = 80) {
       latitude = lat,
       longitude = lng
     ) |>
-    mutate(
+    dplyr::mutate(
       hr_normalized = heart_rate / max_hr * 100,
       pwr_normalized = power / bw,
       elapsed_time_min = elapsed_time_sec / 60
     ) |>
-    select(
+    dplyr::select(
       elapsed_time_sec, elapsed_time_min, heart_rate, hr_normalized,
       power, pwr_normalized, distance, cadence, speed, altitude, grade,
       latitude, longitude
     ) |>
-    as_tibble()
+    dplyr::as_tibble()
 }
