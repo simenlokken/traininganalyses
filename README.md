@@ -4,7 +4,7 @@ The purpose of `traininganalyses` is to ease the process of working with trainin
 
 ### Installation
 
-The latest version of `traininganalyses` is available from [GitHub](https://github.com/simenlokken/traininganalyses):
+The latest version of `traininganalyses` is available from this [GitHub](https://github.com/simenlokken/traininganalyses):
 
 ```{r}
 devtools::install_github("simenlokken/traninganalyses")
@@ -24,7 +24,7 @@ test_data <- data(test_data)
 
 ### Using the functions
 
-Here is an example of how to use the `prepare_garmin_data()` on the `test_data`:
+Here is an example of how to use `prepare_garmin_data()` on the `test_data`:
 
 ```{r}
 session <- prepare_garmin_data(test_data, max_hr = 195, body_weight = 75)
