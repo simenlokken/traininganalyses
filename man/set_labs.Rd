@@ -5,19 +5,19 @@
 \title{Set labs in a ggplot2 object}
 \usage{
 set_labs(
-  pwr_norm = NULL,
-  hr_norm = NULL,
+  pwr_per_kg = NULL,
+  hr_per_cent = NULL,
   time_sec = NULL,
   title = NULL,
   subtitle = NULL
 )
 }
 \arguments{
-\item{pwr_norm}{If you want power in W/kg, set TRUE. If you want absolute power, set FALSE}
+\item{pwr_per_kg}{If you want power in W/kg, set TRUE. If you want absolute power, set FALSE}
 
-\item{hr_norm}{If heart rate in per cent of maximum, set TRUE. If you want in BPM, set FALSE}
+\item{hr_per_cent}{If heart rate in per cent of maximum, set TRUE. If you want in BPM, set FALSE}
 
-\item{time_sec}{If you want time in seconds, set TRUE. If you want in minutes, set FALSE}
+\item{time_sec}{If you want time in seconds, set TRUE. If you want minutes, set FALSE}
 
 \item{title}{Title}
 
@@ -25,5 +25,5 @@ set_labs(
 }
 \description{
 The function must be passed TRUE/FALSE to time_sec argument, and TRUE/FALSE
-to either pwr_norm or hr_norm
+to either pwr_per_kg or hr_per_cent
 }

@@ -4,14 +4,14 @@
 \alias{prepare_garmin_data}
 \title{Prepare Garmin session}
 \usage{
-prepare_garmin_data(dataframe, max_hr = 200, body_weight = 80)
+prepare_garmin_data(dataframe, max_hr = 200, bw = 80)
 }
 \arguments{
 \item{dataframe}{Tibble/dataframe}
 
 \item{max_hr}{Maximum heart rate}
 
-\item{body_weight}{Body weight in kilograms}
+\item{bw}{Body weight in kilograms}
 }
 \description{
 This function is used for cleaning and preparing a dataframe from a Garmin session.
@@ -23,6 +23,6 @@ The main functionality is renaming of columns and creating new columns for norma
 }
 \examples{
 
-session <- prepare_garmin_session(session, max_hr = 200, body_weight = 80)
+session <- prepare_garmin_session(session, max_hr = 200, bw = 80)
 
 }

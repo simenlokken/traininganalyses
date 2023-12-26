@@ -8,18 +8,18 @@
 #'
 #'@param dataframe Tibble/dataframe
 #'@param max_hr Maximum heart rate
-#'@param body_weight Body weight in kilograms
+#'@param bw Body weight in kilograms
 #'
 #'@examples
 #'
-#'session <- prepare_garmin_session(session, max_hr = 200, body_weight = 80)
+#'session <- prepare_garmin_session(session, max_hr = 200, bw = 80)
 #'
 #'@import dplyr
 #'@import janitor
 #'
 #'@export
 
-prepare_garmin_data <- function(dataframe, max_hr = 200, body_weight = 80) {
+prepare_garmin_data <- function(dataframe, max_hr = 200, bw = 80) {
   dataframe <- dataframe |>
     janitor::clean_names() |>
     dplyr::rename(
@@ -35,13 +35,14 @@ prepare_garmin_data <- function(dataframe, max_hr = 200, body_weight = 80) {
     dplyr::mutate(
       elapsed_time_sec = timestamp - min(timestamp),
       elapsed_time_min = elapsed_time_sec / 60,
-      heart_rate_normalized = heart_rate / max_hr * 100,
-      pwr_normalized = power / body_weight
+      hr_per_cent_max = heart_rate / max_hr * 100,
+      pwr_per_kg = power / bw
     ) |>
     dplyr::select(
       timestamp, elapsed_time_sec, elapsed_time_min, heart_rate,
-      heart_rate_normalized, power, pwr_normalized, cadence, distance,
+      hr_per_cent_max, power, pwr_per_kg, cadence, distance,
       altitude, longitude, latitude
     ) |>
     dplyr::as_tibble()
+  return(dataframe)
 }

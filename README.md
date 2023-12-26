@@ -2,7 +2,7 @@
 
 The purpose of `traininganalyses` is to ease the process of working with training data from Garmin and Strava.
 
-For using the Strava functions, it requires you have an API set up. More information in the **Garmin and Strava data** subsection.
+For using the Strava functions, it requires you have an API set up and using it to access your data from Strava. More information in the **Garmin and Strava data** subsection.
 
 The Garmin functions can be used on your own (or others) Garmin data as long as you have downloaded it from Garmin Connect and converted the .fit file to a .csv file. More information in the **Garmin and Strava data** subsection.
 
@@ -28,12 +28,21 @@ test_data
 
 ### Using the functions
 
-Here is an example of how to use `prepare_garmin_data()` function on `test_data`:
+Here is an example of how to use the `prepare_garmin_data()` function on `test_data`:
 
 ```{r}
-session <- prepare_garmin_data(test_data, max_hr = 195, body_weight = 75)
+# Without the pipe operator
+
+session <- prepare_garmin_data(test_data, max_hr = 195, bw = 75)
+
+# With the pipe operator
+
+session <- test_data |> 
+  prepare_garmin_data(max_hr = 195, bw = 75)
 ```
 
 ### Bugs
 
 If you experience any issues, have an idea to a new function, or something you would like to improve, feel free to reach out.
+
+Disclaimer: I'm new to this package game, so don't expect glitter and gold. However, the functions work nicely for me.
