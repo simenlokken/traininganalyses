@@ -1,23 +1,23 @@
 #' Prepare Garmin session
 #'
-#'This function is used for cleaning and preparing a dataframe from a Garmin session.
-#'It can be used directly on a .fit file converted to csv from the Java program RecordToCSV
-#'for Garmin data (https://developer.garmin.com/fit/overview/).
+#' This function is used for cleaning and preparing a dataframe from a Garmin session.
+#' It can be used directly on a .fit file converted to csv from the Java program RecordToCSV
+#' for Garmin data (https://developer.garmin.com/fit/overview/).
 #'
-#'The main functionality is renaming of columns and creating new columns for normalized power and HR.
+#' The main functionality is renaming of columns and creating new columns for normalized power and HR.
 #'
-#'@param dataframe Tibble/dataframe
-#'@param max_hr Maximum heart rate
-#'@param bw Body weight in kilograms
+#' @param dataframe Tibble/dataframe
+#' @param max_hr Maximum heart rate
+#' @param bw Body weight in kilograms
 #'
-#'@examples
+#' @examples
 #'
-#'session <- prepare_garmin_session(session, max_hr = 200, bw = 80)
+#' session <- prepare_garmin_session(session, max_hr = 200, bw = 80)
 #'
-#'@import dplyr
-#'@import janitor
+#' @import dplyr
+#' @import janitor
 #'
-#'@export
+#' @export
 
 prepare_garmin_data <- function(dataframe, max_hr = 200, bw = 80) {
   dataframe <- dataframe |>

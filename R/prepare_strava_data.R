@@ -5,16 +5,16 @@
 #'
 #' Type "?prepare_garmin_session" in the R console for more information.
 #'
-#'@param dataframe Tibble/dataframe
-#'@param max_hr Maximum heart rate (BPM)
-#'@param bw Body weight in kilograms
+#' @param dataframe Tibble/dataframe
+#' @param max_hr Maximum heart rate (BPM)
+#' @param bw Body weight in kilograms
 #'
-#'@examples
-#'session <- prepare_garmin_session(session, max_hr = 200, bw = 80)
+#' @examples
+#' session <- prepare_garmin_session(session, max_hr = 200, bw = 80)
 #'
-#'@import dplyr
+#' @import dplyr
 #'
-#'@export
+#' @export
 
 prepare_strava_data <- function(dataframe, max_hr = 200, bw = 80) {
   dataframe <- dataframe |>
