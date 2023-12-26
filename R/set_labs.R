@@ -9,6 +9,8 @@
 #' @param title Title
 #' @param subtitle subtitle
 #'
+#' @import ggplot2
+#'
 #' @export
 
 set_labs <- function(

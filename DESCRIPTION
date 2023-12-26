@@ -2,17 +2,15 @@ Package: traininganalyses
 Type: Package
 Title: traininganalyses: A package for analyzing training data
 Version: 0.1.0
-Author: Simen Lokken
+Author: Simen Løkken
 Maintainer: Package maintainer <simenloekken97@gmail.com>
-Description: A simple package for making the process of working with training session data from Garmin and Strava easier
+Description: A simple package for making the process of working with training session data from Garmin and Strava easier.
 License: MIT
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.2.3
 Suggests: 
-    testthat (>= 3.0.0)
 Imports: 
     dplyr,
     ggplot2,
     janitor
-Config/testthat/edition: 3

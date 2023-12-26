@@ -7,11 +7,12 @@
 #'
 #'@param dataframe Tibble/dataframe
 #'@param max_hr Maximum heart rate (BPM)
-#'@param body_weight Body weight in kilograms
+#'@param bw Body weight in kilograms
 #'
 #'@examples
-#'
 #'session <- prepare_garmin_session(session, max_hr = 200, body_weight = 80)
+#'
+#'@import dplyr
 #'
 #'@export
 
@@ -27,13 +28,13 @@ prepare_strava_data <- function(dataframe, max_hr = 200, bw = 80) {
       longitude = lng
     ) |>
     dplyr::mutate(
-      hr_normalized = heart_rate / max_hr * 100,
-      pwr_normalized = power / bw,
+      hr_per_cent_max = heart_rate / max_hr * 100,
+      pwr_per_kg = power / bw,
       elapsed_time_min = elapsed_time_sec / 60
     ) |>
     dplyr::select(
-      elapsed_time_sec, elapsed_time_min, heart_rate, hr_normalized,
-      power, pwr_normalized, distance, cadence, speed, altitude, grade,
+      elapsed_time_sec, elapsed_time_min, heart_rate, hr_per_cent_max,
+      power, pwr_per_kg, distance, cadence, speed, altitude, grade,
       latitude, longitude
     ) |>
     dplyr::as_tibble()

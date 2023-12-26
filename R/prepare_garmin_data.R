@@ -14,6 +14,9 @@
 #'
 #'session <- prepare_garmin_session(session, max_hr = 200, body_weight = 80)
 #'
+#'@import dplyr
+#'@import janitor
+#'
 #'@export
 
 prepare_garmin_data <- function(dataframe, max_hr = 200, body_weight = 80) {
