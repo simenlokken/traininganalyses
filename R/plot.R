@@ -57,7 +57,6 @@ plot <- function(
       geom,
       line = ggplot2::geom_line(aes(color = color), show.legend = FALSE, alpha = alpha),
       point = ggplot2::geom_point(aes(color = color, fill = fill), show.legend = FALSE, alpha = alpha),
-      bar = ggplot2::geom_bar(aes(color = color, fill = fill), show.legend = FALSE, alpha = alpha),
       area = ggplot2::geom_area(aes(color = color, fill = fill), show.legend = FALSE, alpha = alpha),
       violin = ggplot2::geom_violin(aes(color = color, fill = fill), show.legend = FALSE, alpha = alpha),
       default = ggplot2::geom_line(aes(color = color, fill = fill), show.legend = FALSE, alpha = alpha)
