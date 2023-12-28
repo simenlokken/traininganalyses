@@ -1,8 +1,8 @@
 #' A generic plotting function
 #'
-#' ggplot2 styled plots for quick and easy plotting. Possible geoms are line, point, bar and area.
+#' ggplot2 styled plots for quick and easy plotting. Possible geoms are line, point, bar, area and violin
 #'
-#' @param dataframe The data you want to plot
+#' @param dataframe Dataframe/tibble
 #' @param x X axis element
 #' @param y Y axis element
 #' @param geom Type of plot, geom object
@@ -11,6 +11,7 @@
 #' @param alpha Geom opacity
 #' @param xlab X axis title
 #' @param ylab Y lab title
+#' @param theme Plot theme
 #' @param title Plot title
 #' @param subtitle Plot subtitle
 #'
@@ -40,6 +41,7 @@ plot <- function(
     alpha = NULL,
     xlab = NULL,
     ylab = NULL,
+    theme = "theme_light",
     title = NULL,
     subtitle = NULL
 ) {
@@ -52,11 +54,12 @@ plot <- function(
   ) +
     switch(
       geom,
-      line = ggplot2::geom_line(alpha = alpha, color = color),
-      point = ggplot2::geom_point(alpha = alpha, color = color, fill = fill),
-      bar = ggplot2::geom_bar(alpha = alpha, color = color, fill = fill),
-      area = ggplot2::geom_area(alpha = alpha, fill = fill),
-      default = ggplot2::geom_line(alpha = alpha, color = color, fill = fill)
+      line = ggplot2::geom_line(aes(color = color), show.legend = FALSE, alpha = alpha),
+      point = ggplot2::geom_point(aes(color = color, fill = fill), show.legend = FALSE, alpha = alpha),
+      bar = ggplot2::geom_bar(aes(color = color, fill = fill), show.legend = FALSE, alpha = alpha),
+      area = ggplot2::geom_area(aes(color = color, fill = fill), show.legend = FALSE, alpha = alpha),
+      violin = ggplot2::geom_violin(aes(color = color, fill = fill), show.legend = FALSE, alpha = alpha),
+      default = ggplot2::geom_line(aes(color = color, fill = fill), show.legend = FALSE, alpha = alpha)
     ) +
     ggplot2::labs(
       x = xlab,
@@ -64,10 +67,19 @@ plot <- function(
       title = title,
       subtitle = subtitle
     ) +
-    ggplot2::theme_bw() +
-    ggplot2::theme(
-      panel.grid.minor = ggplot2::element_blank()
-    )
+    switch(
+      theme,
+      "bw" = ggplot2::theme_bw(),
+      "minimal" = ggplot2::theme_minimal(),
+      "classic" = ggplot2::theme_classic(),
+      "light" = ggplot2::theme_light(),
+      default = ggplot2::theme_light()
+    ) +
+    scale_color_manual(values = color) +
+    scale_fill_manual(values = fill) +
+      ggplot2::theme(
+        panel.grid.minor = ggplot2::element_blank()
+      )
 }
 
 

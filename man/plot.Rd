@@ -14,12 +14,13 @@ plot(
   alpha = NULL,
   xlab = NULL,
   ylab = NULL,
+  theme = "theme_light",
   title = NULL,
   subtitle = NULL
 )
 }
 \arguments{
-\item{dataframe}{The data you want to plot}
+\item{dataframe}{Dataframe/tibble}
 
 \item{x}{X axis element}
 
@@ -36,6 +37,8 @@ plot(
 \item{xlab}{X axis title}
 
 \item{ylab}{Y lab title}
+
+\item{theme}{Plot theme}
 
 \item{title}{Plot title}
 
