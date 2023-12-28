@@ -1,15 +1,16 @@
-#' A generic plotting function
+#' A ggplot2 based plotting function
 #'
 #' ggplot2 styled plots for quick and easy plotting. Possible geoms are line, point, area and violin.
 #' The function works in a ggplot workflow, so you can extend or override settings by adding ggplot2 "layers".
 #'
-#' @param dataframe Dataframe/tibble
+#' @param dataframe Data frame/tibble
 #' @param x X axis element
 #' @param y Y axis element
 #' @param geom Type of plot, geom object
 #' @param color Color for the geom object
 #' @param fill Fill for the geom object
 #' @param alpha Geom opacity
+#' @param linewidth Line width (for geom = "line")
 #' @param xlab X axis title
 #' @param ylab Y lab title
 #' @param theme Plot theme
@@ -40,9 +41,10 @@ plot <- function(
     color = NULL,
     fill = NULL,
     alpha = 1,
+    linewidth = 0.7,
     xlab = NULL,
     ylab = NULL,
-    theme = "theme_light",
+    theme = "light",
     title = NULL,
     subtitle = NULL
 ) {
@@ -55,11 +57,11 @@ plot <- function(
   ) +
     switch(
       geom,
-      line = ggplot2::geom_line(aes(color = color), show.legend = FALSE, alpha = alpha),
+      line = ggplot2::geom_line(aes(color = color), show.legend = FALSE, alpha = alpha, linewidth = linewidth),
       point = ggplot2::geom_point(aes(color = color, fill = fill), show.legend = FALSE, alpha = alpha),
       area = ggplot2::geom_area(aes(color = color, fill = fill), show.legend = FALSE, alpha = alpha),
       violin = ggplot2::geom_violin(aes(color = color, fill = fill), show.legend = FALSE, alpha = alpha),
-      default = ggplot2::geom_line(aes(color = color, fill = fill), show.legend = FALSE, alpha = alpha)
+      default = ggplot2::geom_line(aes(color = color, fill = fill), show.legend = FALSE, alpha = alpha, linewidth = linewidth)
     ) +
     ggplot2::labs(
       x = xlab,

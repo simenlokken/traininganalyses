@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot.R
 \name{plot}
 \alias{plot}
-\title{A generic plotting function}
+\title{A ggplot2 based plotting function}
 \usage{
 plot(
   dataframe,
@@ -12,6 +12,7 @@ plot(
   color = NULL,
   fill = NULL,
   alpha = 1,
+  linewidth = 0.7,
   xlab = NULL,
   ylab = NULL,
   theme = "theme_light",
@@ -20,7 +21,7 @@ plot(
 )
 }
 \arguments{
-\item{dataframe}{Dataframe/tibble}
+\item{dataframe}{Data frame/tibble}
 
 \item{x}{X axis element}
 
@@ -33,6 +34,8 @@ plot(
 \item{fill}{Fill for the geom object}
 
 \item{alpha}{Geom opacity}
+
+\item{linewidth}{Line width (for geom = "line")}
 
 \item{xlab}{X axis title}
 
