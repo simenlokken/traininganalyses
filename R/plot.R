@@ -57,17 +57,17 @@ plot <- function(
       bar = ggplot2::geom_bar(alpha = alpha, color = color, fill = fill),
       area = ggplot2::geom_area(alpha = alpha, fill = fill),
       default = ggplot2::geom_line(alpha = alpha, color = color, fill = fill)
-      ) +
+    ) +
     ggplot2::labs(
       x = xlab,
       y = ylab,
       title = title,
       subtitle = subtitle
     ) +
+    ggplot2::theme_bw() +
     ggplot2::theme(
       panel.grid.minor = ggplot2::element_blank()
-    ) +
-    ggplot2::theme_bw()
+    )
 }
 
 
