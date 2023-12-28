@@ -6,12 +6,12 @@
 \usage{
 plot(
   dataframe,
-  x,
-  y,
+  x = "x",
+  y = "y",
   geom = "line",
   color = NULL,
   fill = NULL,
-  alpha = NULL,
+  alpha = 1,
   xlab = NULL,
   ylab = NULL,
   theme = "theme_light",
@@ -48,7 +48,8 @@ plot(
 A ggplot2 object
 }
 \description{
-ggplot2 styled plots for quick and easy plotting. Possible geoms are line, point, bar and area.
+ggplot2 styled plots for quick and easy plotting. Possible geoms are line, point, area and violin.
+The function works in a ggplot workflow, so you can extend or override settings by adding ggplot2 "layers".
 }
 \examples{
 test_data |>

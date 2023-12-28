@@ -1,6 +1,7 @@
 #' A generic plotting function
 #'
-#' ggplot2 styled plots for quick and easy plotting. Possible geoms are line, point, bar, area and violin
+#' ggplot2 styled plots for quick and easy plotting. Possible geoms are line, point, area and violin.
+#' The function works in a ggplot workflow, so you can extend or override settings by adding ggplot2 "layers".
 #'
 #' @param dataframe Dataframe/tibble
 #' @param x X axis element
@@ -33,12 +34,12 @@
 
 plot <- function(
     dataframe,
-    x,
-    y,
+    x = "x",
+    y = "y",
     geom = "line",
     color = NULL,
     fill = NULL,
-    alpha = NULL,
+    alpha = 1,
     xlab = NULL,
     ylab = NULL,
     theme = "theme_light",
@@ -77,10 +78,11 @@ plot <- function(
     ) +
     scale_color_manual(values = color) +
     scale_fill_manual(values = fill) +
-      ggplot2::theme(
-        panel.grid.minor = ggplot2::element_blank()
-      )
+    ggplot2::theme(
+      panel.grid.minor = ggplot2::element_blank()
+    )
 }
+
 
 
 

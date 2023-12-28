@@ -1,7 +1,7 @@
 Package: traininganalyses
 Type: Package
 Title: traininganalyses: A package for analyzing training data
-Version: 0.1.0
+Version: 0.1.1
 Author: Simen Løkken
 Maintainer: Package maintainer <simenloekken97@gmail.com>
 Description: A simple package for making the process of working with training session data from Garmin and Strava easier.
