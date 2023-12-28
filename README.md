@@ -8,7 +8,7 @@ The Garmin functions can be used on your own (or others) Garmin data as long as 
 
 ### Installation
 
-Version 0.1.0 of `traininganalyses` is available on this [GitHub](https://github.com/simenlokken/traininganalyses), and can be downloaded using the following code:
+Version 0.1.1 of `traininganalyses` is available on this [GitHub](https://github.com/simenlokken/traininganalyses), and can be downloaded using the following code:
 
 ```{r}
 devtools::install_github("simenlokken/traininganalyses")
